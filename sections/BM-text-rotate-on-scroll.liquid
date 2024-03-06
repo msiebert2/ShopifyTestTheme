@@ -1,0 +1,74 @@
+<section id="content">
+	<div class="content-wrap bg-light overflow-visible">
+		<div class="container clearfix">
+			<div class="min-vh-25"></div>
+			<h3>Rotate Circular Text On Scroll Effect</h3>
+			<div class="circular-text position-fixed" style="min-width: 300px; max-height: 300px; top: 20px; right: 20px;">
+				<div>
+					<h4 id="rotated-text" class="parallax m-0" data-0="transform: rotate(0deg);" data-end="transform: rotate(360deg);">
+								 Corporate | Portfolio | Business | Real Estate | Medical | Construction |
+					</h4>
+				</div>
+			</div>
+			<div style="height: 1000px;"></div>
+		</div>
+	</div>
+</section>
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% style %}
+::selection{
+  background:#1ABC9C;
+  color:#FFF;
+  text-shadow:none;
+}
+:active,:focus{
+  outline:none!important;
+}
+h2,h4{
+  color:#444;
+  font-weight:600;
+  line-height:1.5;
+  margin:0 0 30px 0;
+  font-family:'Poppins', sans-serif;
+}
+h2{font-size:30px;}
+h4{font-size:18px;}
+h4{font-weight:600;}
+@media (max-width: 767.98px){
+h2{font-size:1.5rem;}
+h4{font-size:1rem;}
+}
+.parallax{background-color:transparent;background-attachment:fixed;background-position:50% 0;background-repeat:no-repeat;overflow:hidden;will-change:auto;}
+{% endstyle %}
+
+
+{% javascript %}
+*,*::before,*::after{box-sizing:border-box;}
+h4,h2{margin-top:0;margin-bottom:0.5rem;font-weight:500;line-height:1.2;}
+h2{font-size:calc(1.325rem + 0.9vw);}
+@media (min-width: 1200px){
+h2{font-size:2rem;}
+}
+h4{font-size:calc(1.275rem + 0.3vw);}
+@media (min-width: 1200px){
+h4{font-size:1.5rem;}
+}
+.m-0{margin:0!important;}
+.mb-0{margin-bottom:0!important;}
+
+  <script>
+		const circleType = new CircleType(
+			document.getElementById("rotated-text")
+			).radius(80);
+	<endscript>
+  
+{% endjavascript %}

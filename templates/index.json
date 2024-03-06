@@ -1,0 +1,116 @@
+{
+  "sections": {
+    "7de44be3-893e-4128-9ea9-267a60e4e2e8": {
+      "type": "BM-infinite-rotating-text-w-logo",
+      "settings": {
+        "title": "Rotating Circular Text",
+        "image": "shopify:\/\/shop_images\/baby-nursery-crib-design.jpg",
+        "rotating_text": "i know this text works but my default doesnt show up. wtf",
+        "link_url": "",
+        "color_title": "#ffffff",
+        "color_text": "#c10101",
+        "color_bg": "#67bcec",
+        "color_border": "#a4189c",
+        "border_width": 5
+      }
+    },
+    "0fc23e2e-c0cf-43f1-863c-f420e6760242": {
+      "type": "BM-testimonials-markup2",
+      "settings": {
+        "color_bg": "#ffffff",
+        "color_border": "#000000",
+        "border_width": 0,
+        "header_border_width": 0,
+        "text_color": "#000000",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 36
+      }
+    },
+    "c35badff-fadb-43f6-9238-95474c067e50": {
+      "type": "BM-Comments-Infinite-Carousel",
+      "blocks": {
+        "template--17659811234100__c35badff-fadb-43f6-9238-95474c067e50-1675350136bf41238b-0": {
+          "type": "item",
+          "settings": {
+            "text": "",
+            "image": "shopify:\/\/shop_images\/IMG_4852.jpg",
+            "image_width": 40,
+            "image_width_mobile": 40
+          }
+        },
+        "template--17659811234100__c35badff-fadb-43f6-9238-95474c067e50-1675350136bf41238b-1": {
+          "type": "item",
+          "settings": {
+            "text": "",
+            "image": "shopify:\/\/shop_images\/IMG_4852.jpg",
+            "image_width": 40,
+            "image_width_mobile": 40
+          }
+        },
+        "d7650f40-b315-4fdf-b7b3-e7ca90eb3a67": {
+          "type": "item",
+          "settings": {
+            "text": "",
+            "image": "shopify:\/\/shop_images\/IMG_4852.jpg",
+            "image_width": 40,
+            "image_width_mobile": 40
+          }
+        }
+      },
+      "block_order": [
+        "template--17659811234100__c35badff-fadb-43f6-9238-95474c067e50-1675350136bf41238b-0",
+        "template--17659811234100__c35badff-fadb-43f6-9238-95474c067e50-1675350136bf41238b-1",
+        "d7650f40-b315-4fdf-b7b3-e7ca90eb3a67"
+      ],
+      "settings": {
+        "link_url": "",
+        "color_text": "#ffffff",
+        "color_bg": "#ffffff",
+        "color_border": "#000000",
+        "border_width": 0,
+        "text_size": 30,
+        "text_size_mobile": 20,
+        "item_padding": 20,
+        "direction": "normal",
+        "speed": 340,
+        "padding": 10,
+        "mobile_hide": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "7de44be3-893e-4128-9ea9-267a60e4e2e8",
+    "0fc23e2e-c0cf-43f1-863c-f420e6760242",
+    "featured_collection",
+    "c35badff-fadb-43f6-9238-95474c067e50"
+  ]
+}

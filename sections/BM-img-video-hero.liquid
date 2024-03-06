@@ -1,0 +1,245 @@
+{%- style -%}
+  #BM-{{section.id}} .{}
+  #BM-{{section.id}} {
+    background: {{ section.settings.color_bg }};
+    border-top: {{ section.settings.border_width }}px solid {{ section.settings.color_border }};
+    border-left: {{ section.settings.border_width }}px solid {{ section.settings.color_border }};
+    color: {{ section.settings.color_text }};
+    position: relative;
+    overflow: hidden;
+  }
+  #BM-{{section.id}} .bm-templates_hero-container {
+    width: auto;
+    height: auto;
+    float: center;
+    margin: 50px;
+    background: blue;
+    border-top: {{ section.settings.border_width }}px solid {{ section.settings.color_border }};
+    border-bottom: {{ section.settings.border_width }}px solid {{ section.settings.color_border }};
+    
+  }
+  #BM-{{section.id}} .bm-hero-content-2 {
+    height: auto;
+    width: auto;
+    display: flex;
+  }  
+    #BM-{{section.id}} .bm-hero-content-3 {
+      height: auto;
+      width: auto;
+      display: flex;
+  }  
+   
+  #BM-{{section.id}} .bm-hero-content-3 .bm-templates_content-item {
+    display: inline-block;
+    float: left;
+    width: 33%;
+    padding: {{ section.settings.padding }}px;
+
+  }
+    #BM-{{section.id}} .bm-hero-content-2 .bm-templates_content-item {
+      display: inline-block;
+      float: left;
+      width: 50%;
+      padding: {{ section.settings.padding }}px;
+      background: white;
+
+  }
+{%- endstyle -%}
+
+<section id="BM-{{ section.id }}" class="BM_section bm-templates_img-video-hero {{ section.settings.css_class }}">
+{%- if section.settings.link_url != blank -%}
+      <a href="{{ section.settings.link_url }}"></a>
+  {%- endif -%}
+  <div class="bm-templates_hero-container">
+  {% assign count = 0 %}
+  {% for block in section.blocks %}
+    {% assign count = count | plus: 1 %}
+  {% endfor %}
+  <div class="flex {% if count > 2 %}bm-hero-content-3{% else %}bm-hero-content-2{% endif %}">
+    {% for block in section.blocks %}
+    <span id="block-{{ block.id }}" class="bm-templates_content-item" {{ block.shopify_attributes }}
+    {%- if block.settings.image != blank -%}
+      {{ block.settings.image | image_url: width: 100 | image_tag }}
+    {%- endif -%}
+    {%- if block.settings.text != blank -%}
+      {{- block.settings.text -}}
+    {%- endif -%}
+      </span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+ 
+{% schema %}
+{
+  "name":"BM Image & Video Hero",
+  "settings":[
+    {
+      "type":"header",
+      "content":"Content"
+    },
+    {
+      "type":"url",
+      "id":"link_url",
+      "label":"Link"
+    },
+    {
+      "type":"header",
+      "content":"Color"
+    },
+    {
+      "type":"color",
+      "id":"color_text",
+      "label":"Text Color",
+      "default":"#000"
+    },
+    {
+      "type":"color",
+      "id":"color_bg",
+      "label":"Section Background Color",
+      "default":"#fff"
+    },
+    {
+      "type":"color",
+      "id":"color_border",
+      "label":"Border Color",
+      "default":"#000"
+    },
+    {
+      "type":"range",
+      "id":"border_width",
+      "min":0,
+      "max":6,
+      "step":1,
+      "label":"Border Width",
+      "default":0
+    },
+    {
+      "type":"header",
+      "content":"Size & Movement"
+    },
+    {
+      "type":"range",
+      "id":"text_size",
+      "label":"Text Size (Desktop)",
+      "default":30,
+      "min":10,
+      "max":60,
+      "step":2,
+      "unit":"px"
+    },
+    {
+      "type":"range",
+      "id":"text_size_mobile",
+      "label":"Text Size (Mobile)",
+      "default":20,
+      "min":10,
+      "max":40,
+      "step":2,
+      "unit":"px"
+    },
+    {
+      "type":"range",
+      "id":"item_padding",
+      "label":"Space after text",
+      "default":20,
+      "min":20,
+      "max":100,
+      "step":5,
+      "unit":"px"
+    },
+    {
+      "type":"range",
+      "id":"padding",
+      "min":0,
+      "max":40,
+      "step":2,
+      "label":"Padding above and below",
+      "default":10
+    },
+    {
+      "type":"header",
+      "content":"Mobile"
+    },
+    {
+      "type":"header",
+      "content":"Advanced"
+    },
+    {
+      "type":"text",
+      "id":"css_class",
+      "label":"CSS Class"
+    },
+    {
+      "type":"textarea",
+      "id":"custom_css",
+      "label":"Custom CSS",
+      "info":"Write your CSS here. Use !important when necessary."
+    }
+  ],
+  "blocks":[
+    {
+      "type":"item",
+      "name":"Hero Item",
+      "settings":[
+        {
+          "type":"text",
+          "id":"heading",
+          "label":"Hero Headline"
+        },
+        {
+          "type":"richtext",
+          "id":"text",
+          "label":"Hero Sub Text",
+          "default":"<p>Free shipping and returns</p>"
+        },
+        {
+          "type":"image_picker",
+          "id":"image",
+          "label":"Image"
+        },
+        {
+          "type":"range",
+          "id":"image_width",
+          "label":"Image Width (Desktop)",
+          "min":30,
+          "max":200,
+          "step":2,
+          "unit":"px",
+          "default":40
+        },
+        {
+          "type":"range",
+          "id":"image_width_mobile",
+          "label":"Image Width (Mobile)",
+          "min":30,
+          "max":100,
+          "step":1,
+          "unit":"px",
+          "default":40
+        }
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name":"BM Image & Video Hero Section",
+      "category":"BM Templates",
+      "blocks":[
+        {
+          "type":"item",
+          "settings":{
+            "text":"<p>Item Text</p>"
+          }
+        },
+        {
+          "type":"item",
+          "settings":{
+            "text":"<p>Item Text</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

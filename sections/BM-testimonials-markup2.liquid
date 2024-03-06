@@ -1,0 +1,194 @@
+<section id="BM-{{ section.id }}" class="BM_section bm-templates_testimonials {{ section.settings.css_class }}">
+  {% comment %}
+    {%- if section.settings.link_url != blank -%}
+       href="{{ section.settings.link_url }}"></a>
+    {%- endif -%}
+  {% endcomment %}
+  <div class="bm-testimonials-container">
+    <div class="bm-testimonials-content-header">
+      <h2>Life Changing Results for Thousands of Dogs</h2>
+      <h5>⭐️⭐️⭐️⭐️⭐️</h5>
+      <h6>See why 5,000+ customers trust WINPRO</h6>
+    </div>
+    <div class="bm-testimonials-content-left">
+      {% comment %} To add another testimonial, copy everything from the end of this comment{% endcomment %}
+      <div class="bm-testimonials-item-left">
+        <h5>⭐️⭐️⭐️⭐️⭐️</h5>{% comment %} Product Rating {% endcomment %}
+        <h1>This Stuff is working!</h1>{% comment %} Testimonial Header {% endcomment %}
+        <p>I was skeptical as I when it comes to tryinganything for my fur kids. This stuff is working! 
+          My 5 year old giant schnauzer has always lickedat his paws, he is not doing that any more. 
+          Our other giant suffers from ragweed and this helpstremendously. Wish I had found this years ago.</p>{% comment %} Testimonial Paragraph {% endcomment %}
+        <span class="testimonial-customer">- Brent Swanson</span>{% comment %} Customer Name {% endcomment %}
+      </div>
+      {% comment %} to the beginning of this comment {% endcomment %}
+      {% comment %} and paste after this comment {% endcomment %}
+      <div class="bm-testimonials-item-left">
+        <h5>⭐️⭐️⭐️⭐️⭐️</h5>{% comment %} Product Rating {% endcomment %}
+        <h1>This Stuff is working! #2</h1>{% comment %} Testimonial Header {% endcomment %}
+        <p>I was skeptical as I when it comes to tryinganything for my fur kids. This stuff is working! 
+          My 5 year old giant schnauzer has always lickedat his paws, he is not doing that any more. 
+          Our other giant suffers from ragweed and this helpstremendously. Wish I had found this years ago.</p>{% comment %} Testimonial Paragraph {% endcomment %}
+        <span class="testimonial-customer">- Michael Siebert</span>{% comment %} Customer Name {% endcomment %}
+      </div>
+    </div>
+    <div class="bm-testimonials-content-right">
+      <div class="bm-testimonials-item-right"> 
+        <img src="{{ 'man-in-white-and-light-tan-outfit.jpg' | file_img_url: '200x200' }}" />
+        <img src="{{ 'man-in-white-and-light-tan-outfit.jpg' | file_img_url: '200x200' }}" />
+        <img src="{{ 'man-in-white-and-light-tan-outfit.jpg' | file_img_url: '200x200' }}" />
+        <img src="{{ 'man-in-white-and-light-tan-outfit.jpg' | file_img_url: '200x200' }}" />
+        <img src="{{ 'man-in-white-and-light-tan-outfit.jpg' | file_img_url: '200x200' }}" />
+        <img src="{{ 'man-in-white-and-light-tan-outfit.jpg' | file_img_url: '200x200' }}" />
+        </div>
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  #BM-{{section.id}} {
+    background: {{ section.settings.color_bg }};
+    border-style: solid;
+    border-width: {{ section.settings.border_width }}px;
+    border-color: {{ section.settings.color_border }};
+    color: {{ section.settings.text_color }};
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  #BM-{{section.id}} .bm-testimonials-container {
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: relative;
+    width: 100%;
+    height: 90%;
+    display: inline-block;
+  }
+  #BM-{{section.id}} .bm-testimonials-container .bm-testimonials-content-header h2{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #BM-{{section.id}} .bm-testimonials-container .bm-testimonials-content-header h5, h6{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  #BM-{{section.id}} .bm-testimonials-container .bm-testimonials-content-left {
+    width: 66%;
+    float: left;
+    padding: 10px;
+    position: relative;
+    display:inline-block;
+  }
+  #BM-{{section.id}} .bm-testimonials-container .bm-testimonials-content-left h5{
+    text-align:left;
+    margin-bottom: 5px;
+  }
+  #BM-{{section.id}} .bm-testimonials-container .bm-testimonials-content-header .bm-testimonials-content-left h5 {
+    margin-bottom: 0px;
+  }
+    #BM-{{section.id}} .bm-testimonials-container .bm-testimonials-content-left h1 {
+    margin-top: 5px;
+  }
+  #BM-{{section.id}} .bm-testimonials-container .bm-testimonials-content-right {
+    width: 33%;
+    float: left;
+    padding: 20px;
+    position: relative;
+    display: inline-block;
+  }
+  #BM-{{section.id}} .bm-testimonials-container .bm-testimonials-content-right img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    padding: 5px 5px;
+  }
+  #BM-{{section.id}} .bm-testimonials-content-left .testimonial-customer {
+    float: right;
+    float: bottom;
+    font-weight: bold;
+    }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name":"BM Testimonials Template",
+  "settings":[
+    {
+      "type":"header",
+      "content":"Section"
+    },
+    {
+      "type":"color",
+      "id":"color_bg",
+      "label":"Section Background Color",
+      "default":"#fff"
+    },
+    {
+      "type":"color",
+      "id":"color_border",
+      "label":"Border Color",
+      "default":"#000"
+    },
+    {
+      "type":"range",
+      "id":"border_width",
+      "min":0,
+      "max":6,
+      "step":1,
+      "label":"Border Width",
+      "default":0
+    },
+    {
+      "type":"header",
+      "content":"Testimonial Header"
+    },
+    {
+      "type":"range",
+      "id":"header_border_width",
+      "min":0,
+      "max":6,
+      "step":1,
+      "label":"Header Content Border Width",
+      "default":0
+    },
+    {
+      "type":"header",
+      "content":"Left Content/ Testimonials"
+    },
+    {
+      "type":"color",
+      "id":"text_color",
+      "label":"Text Color",
+      "default":"#000"
+    },
+    {
+      "type":"header",
+      "content":"Right Content/ Images"
+    },
+    {
+      "type":"header",
+      "content":"Advanced"
+    },
+    {
+      "type":"text",
+      "id":"css_class",
+      "label":"CSS Class"
+    },
+    {
+      "type":"textarea",
+      "id":"custom_css",
+      "label":"Custom CSS",
+      "info":"Write your CSS here. Use !important when necessary."
+    }
+  ],
+  "presets":[
+    {
+      "name":"BM Testimonials Template",
+      "category":"BM Testimonial Templates"
+    }
+  ]
+}
+{% endschema %}

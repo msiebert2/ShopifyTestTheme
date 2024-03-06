@@ -1,0 +1,158 @@
+<section id="BM-{{ section.id }}">
+	<div class="content-wrap">
+		<div class="container center clearfix">
+			<h3>{{ section.settings.title }}</h3>
+			<div class="circular-text position-relative">
+				<h4 id="rotated-text" class="m-0 rotating infinite">
+    				{{ section.settings.rotating_text }}
+				</h4>
+					<a class="center-text fw-bold h2 text-dark" href> <img src={{ section.settings.image | width: 500 }}></a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<script>
+  const circleType = new CircleType(
+    document.getElementById("rotated-text")
+  ).radius(80);
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/circletype@2.3.0/dist/circletype.min.js"></script>
+
+{% style %}
+  #BM-{{ section.id }} {
+    background: {{section.settings.color_bg}};
+    border-top: {{ section.settings.border_width }}px solid {{ section.settings.color_border }};
+    border-bottom: {{ section.settings.border_width }}px solid {{ section.settings.color_border }};
+  }
+  #BM-{{ section.id }} h4{
+    color: {{ section.settings.color_text }};
+  }
+  #BM-{{ section.id }} h3{
+    color: {{ section.settings.color_title }};
+  }
+  #BM-{{ section.id }} img{
+    clip-path: circle();
+  }
+  
+  .center-text {
+    position: absolute;
+    top: 36%;
+    left: 48%;
+    {% comment %}transform: translate(-50%, -50%);{% endcomment %}
+  }
+  @-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+	}
+  to {
+  -webkit-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  }
+  }
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .rotating {
+    -webkit-animation: rotating 20s linear infinite;
+    -moz-animation: rotating 20s linear infinite;
+    -ms-animation: rotating 20s linear infinite;
+    -o-animation: rotating 20s linear infinite;
+    animation: rotating 20s linear infinite;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name":"Image w Rotating Text",
+  "settings":[
+    {
+      "type":"header",
+      "content":"Content"
+    },
+    {
+      "type":"text",
+      "id":"title",
+      "label":"Section Title",
+      "default": "Rotating Circular Text"
+    },
+    {
+      "type":"image_picker",
+      "id":"image",
+      "label":"Image"
+    },
+    {
+      "type":"text",
+      "id":"rotating_text",
+      "label":"Rotating Text",
+      "default": "Rotating Circular Text" 
+    },
+    {
+      "type":"url",
+      "id":"link_url",
+      "label":"Link"
+    },
+    {
+      "type":"header",
+      "content":"Section Color"
+    },
+    {
+      "type":"color",
+      "id":"color_title",
+      "label":"Title Color",
+      "default":"#fff"
+    },
+    {
+      "type":"color",
+      "id":"color_text",
+      "label":"Text Color",
+      "default":"#fff"
+    },
+    {
+      "type":"color",
+      "id":"color_bg",
+      "label":"Background Color",
+      "default":"#000"
+    },
+    {
+      "type":"color",
+      "id":"color_border",
+      "label":"Border Color",
+      "default":"#000"
+    },
+    {
+      "type":"range",
+      "id":"border_width",
+      "min":0,
+      "max":6,
+      "step":1,
+      "label":"Border Width",
+      "default":0
+    }
+  ],
+  "presets":[
+    {
+      "name":"Image w Rotating Text",
+      "category":"BM Templates"
+    }
+  ]
+}
+{% endschema %}
